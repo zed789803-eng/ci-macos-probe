@@ -1,8 +1,26 @@
-﻿name: probe
+name: probe
+
 on:
   workflow_dispatch:
+
 jobs:
-  macos:
+  latest:
+    runs-on: macos-latest
+    steps:
+      - run: echo "latest ok"; sw_vers
+  m15:
+    runs-on: macos-15
+    steps:
+      - run: echo "15 ok"; sw_vers
+  m14:
     runs-on: macos-14
     steps:
-      - run: echo "macos ok"; sw_vers; clang++ --version | head -1
+      - run: echo "14 ok"; sw_vers
+  m13:
+    runs-on: macos-13
+    steps:
+      - run: echo "13 ok"; sw_vers
+  ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "ubuntu ok"
